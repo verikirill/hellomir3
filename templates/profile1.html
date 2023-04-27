@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<p></p>
+<p></p>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/icons2.css') }}">
+<h1 style="margin-right: 500px; color: white;">Курсы, которые вы приобрели:</h1>
+<p></p>
+<p></p>
+<h2 style="color: white;">{{owned_courses}}</h2>
+<p></p>
+{% endblock %}

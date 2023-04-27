@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<hmtl>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/obzor.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <style>
+            body {
+                background-color: #2c2c34";
+                font-size: 120px;
+                margin: 0 auto;
+            }
+             .card-2 {
+                margin-top: 20px;
+                font-size: 24px;
+                padding: 20px;
+                border-radius: 20px;
+                background-color: white;
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+                flex-shrink: 2;
+            }
+             img {
+                display: block;
+                margin: 0 auto;
+            }
+                .buy-button {
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                padding: 10px;
+                border-radius: 20px;
+                background-color: blue;
+                color: white;
+                text-decoration: none;
+            }
+            .delete-button {
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                padding: 10px;
+                border-radius: 20px;
+                background-color: red;
+                color: white;
+                text-decoration: none;
+            }
+            .redact-button {
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                padding: 10px;
+                border-radius: 20px;
+                background-color: green;
+                color: white;
+                text-decoration: none;
+            }
+            .prev, .next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-block;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 20px;
+                color: white;
+                background-color: blue;
+                border-radius: 50%;
+                text-decoration: none;
+            }
+            .prev {
+                left: 10px;
+            }
+            .next {
+                right: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+    {% if id_prev >= min_id %}
+    <a class="prev" href={{id_prev}}>&#10094;</a>
+    {% endif %}
+    {% if id_next <= max_id %}
+    <a class="next" href={{id_next}}>&#10095;</a>
+    {% endif %}
+    <div class="card-2">
+        <p></p>
+        <h1 style="margin-left: 10px;">Курс: {{data.type_of_cours}}</h1>
+        <h2 style="margin-left: 10px;">Цена: {{data.price}} руб.</h2>
+        <p><img style="allign: center;" src="{{ url_for('static', filename=id) }}" width="500" height="400"></p>
+        <h2 style="margin-left: 10px;">Описание: {{data.about}}</h2>
+        <p></p>
+        <p></p>
+        <a href="/send-cours/{{id_int}}" class="buy-button">Купить</a>
+        {% if data_us_id == us_id %}
+        <a href={{izmen_id}} class="redact-button">Изменить курс</a>
+        <a href={{delete_id}} class="delete-button">Удалить курс</a>
+        {% endif %}
+    </div>
+    </body>
+</hmtl>
+{% endblock %}

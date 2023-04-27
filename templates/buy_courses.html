@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p></p>
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    {% for el in data %}
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">{{el.type_of_cours}}</h4>
+            </div>
+            <div class="card-body">
+                <p><img src="static/uploads/{{el.id}}.jpg"  width="300" height="200"></p>
+                <h1 class="card-title pricing-card-title">{{el.price}}<small
+                        class="text-body-secondary fw-light">руб</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{el.about}}</li>
+                </ul>
+                <a href="/obzorcursa/{{el.id}}" class="w-100 btn btn-lg btn-outline-primary">Купить</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

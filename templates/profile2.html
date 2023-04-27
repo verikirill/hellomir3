@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<p></p>
+<p></p>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/icons2.css') }}">
+<h1 style="margin-right: 500px; color: white;">Курсы, которые вы приобрели:</h1>
+<p></p>
+<p></p>
+{% for el in courses %}
+{% if el.id in owned_courses%}
+<p></p>
+<a style="color: cyan;" href={{el.url_on_files}}>- {{el.type_of_cours}}</a>
+{% endif %}
+{% endfor %}
+<p></p>
+{% endblock %}

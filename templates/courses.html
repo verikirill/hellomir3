@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="colorform" >{{title}}</h1>
+<form action="" method=post enctype=multipart/form-data>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.type_of_cours.label }}<br>
+        {{ form.type_of_cours(class="form-control") }}<br>
+        {% for error in form.type_of_cours.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.about.label }}<br>
+        {{ form.about(class="form-control") }}<br>
+        {% for error in form.about.errors %}
+    <p content="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.price.label }}<br>
+        {{ form.price(class="form-control") }}<br>
+        {% for error in form.price.errors %}
+    <p content="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.url_on_files.label }}<br>
+        {{ form.url_on_files(class="form-control") }}<br>
+        {% for error in form.url_on_files.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p><input type=file name=file style="background-color:#B18FCF"></p>
+    <p>{{ form.submit(type="submit", href="buy-courses",class="enter", style="background-color:#B18FCF; color: FFFFFF;") }}</p>
+    {{message}}
+</form>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/obzor.css') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
